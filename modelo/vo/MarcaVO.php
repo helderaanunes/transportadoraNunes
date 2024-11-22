@@ -1,5 +1,5 @@
 <?php
-class Marca {
+class MarcaVO {
     private $id;
     private $nome;
     private $foto;

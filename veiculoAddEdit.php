@@ -97,15 +97,16 @@
                                 Adicionar Veículo
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form method="POST" action="controle/veiculoControle.php">
                                     <div class="row">
                                         <div class="col-3">
                                             Placa:
-                                            <input type="text" maxlength="8" class="form-control"/>
+                                            <input type="text" maxlength="8" class="form-control"
+                                                   name="placa"/>
                                         </div>
                                         <div class="col-3">
                                             Marca:
-                                            <select class="form-control">
+                                            <select class="form-control" name="marca">
                                                 <option>Fiat</option>
                                                 <option>Ford</option>
                                                 <option>Chevrolet</option>
@@ -114,7 +115,7 @@
                                         </div>
                                         <div class="col-3">
                                             Modelo:
-                                            <select class="form-control">
+                                            <select class="form-control" name="modelo">
                                                 <option>Doblo</option>
                                                 <option>F-4000</option>
                                                 <option>Onyx</option>
@@ -123,15 +124,15 @@
                                         </div>
                                         <div class="col-3">
                                             Ano
-                                            <input type="year" class="form-control" />  
+                                            <input type="year" class="form-control" name="ano"/>  
                                         </div>
                                         <div class="col-3">
                                             Chassi
-                                            <input type="text" class="form-control" />  
+                                            <input type="text" class="form-control" name="chassi" />  
                                         </div>
                                         <div class="col-3">
                                             Combustível
-                                            <select class="form-control">
+                                            <select class="form-control" name="combustivel">
                                                 <option>Etanol</option>
                                                 <option>Gasolina</option>
                                                 <option>Flex</option>
