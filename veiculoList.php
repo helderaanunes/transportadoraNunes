@@ -121,6 +121,27 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        <?php
+                                require_once $_SERVER['DOCUMENT_ROOT'] .
+                                '/transportadoraNunes/modelo/dao/VeiculoDAO.php';
+                                //pegando a lista do Banco de Dados
+                                $lista = VeiculoDAO::getInstance()->listAll();
+                                //Percorrer essa lista para depois imprimir o html
+                                foreach ($lista as $obj){
+                                    echo "<tr>
+                                            <td>".$obj->getId()."</td>
+                                            <td>".$obj->getPlaca()."</td>
+                                            <td>".$obj->getIdMarca()."</td>
+                                            <td>".$obj->getModelo()."</td>
+                                            <td>Em Garagem</td>
+                                            <td>02/05/2024</td>
+                                            <td>
+                                                <a href='./veiculoAddEdit.php?id=".$obj->getId()."' class='btn btn-outline-warning'><i class='fas fa-pen'></i> Editar</a>
+                                                <a href='./controle/veiculoControle.php?id=".$obj->getId()."' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Apagar</a>
+                                            </td>
+                                        </tr>";
+                                }
+                                        ?>
                                         <tr>
                                             <td>2</td>
                                             <td>PCG-0001</td>

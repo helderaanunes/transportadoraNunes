@@ -107,10 +107,10 @@
                                         <div class="col-3">
                                             Marca:
                                             <select class="form-control" name="marca">
-                                                <option>Fiat</option>
-                                                <option>Ford</option>
-                                                <option>Chevrolet</option>
-                                                <option>Volvo</option>
+                                                <option value="1">Fiat</option>
+                                                <option value="1">Ford</option>
+                                                <option value="1">Chevrolet</option>
+                                                <option value="1">Volvo</option>
                                             </select>
                                         </div>
                                         <div class="col-3">

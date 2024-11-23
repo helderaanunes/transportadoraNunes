@@ -20,12 +20,11 @@ class VeiculoDAO {
 
     public function insert(VeiculoVO $veiculo) {
         try {
-            $sql = "INSERT INTO veiculo (nome,idMarca,placa,modelo,ano, chassi, combustivel)"
+            $sql = "INSERT INTO veiculo (idMarca,placa,modelo,ano, chassi, combustivel)"
                     . "VALUES "
-                    . "(:nome,:idMarca,:placa,:modelo,:ano, :chassi, :combustivel)";
+                    . "(:idMarca,:placa,:modelo,:ano, :chassi, :combustivel)";
             //perceba que na linha abaixo vai precisar de um import
             $p_sql = BDPDO::getInstance()->prepare($sql);
-            $p_sql->bindValue(":nome", $veiculo->getNome());
             $p_sql->bindValue(":idMarca", $veiculo->getIdMarca());
             $p_sql->bindValue(":placa", $veiculo->getPlaca());
             $p_sql->bindValue(":modelo", $veiculo->getModelo());
@@ -84,9 +83,8 @@ class VeiculoDAO {
     }
 
     private function converterLinhaDaBaseDeDadosParaObjeto($row) {
-        $obj = new Veiculo();
+        $obj = new VeiculoVO();
         $obj->setId($row['id']);
-        $obj->setNome($row['nome']);
         $obj->setIdMarca($row['idMarca']);
         $obj->setPlaca($row['placa']);
         $obj->setModelo($row['modelo']);
