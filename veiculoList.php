@@ -34,55 +34,7 @@
     
         </nav>
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                            <div class="nav">
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVeiculos" aria-expanded="false" aria-controls="collapseVeiculos">
-                                <div class="sb-nav-link-icon"><i class="fas fa-car"></i></div>
-                                Veículos
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseVeiculos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="veiculoAddEdit.html">Adicionar</a>
-                                    <a class="nav-link" href="veiculoListar.html">Listar</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-target="#collapseMarca" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="collapseUsuario">
-                                <div class="sb-nav-link-icon"><i class="fas fa-copyright"></i></div>
-                                Marca
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseMarca" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="marcaAddEdit.html">Adicionar</a>
-                                    <a class="nav-link" href="marcaList.html">Listar</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-target="#collapseUsuario" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="collapseUsuario">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Usuário
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseUsuario" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="usuarioAddEdit.html">Adicionar</a>
-                                    <a class="nav-link" href="usuarioList.html">Listar</a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
-                </nav>
-            </div>
+         <?php include "menu.php"?>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
@@ -137,35 +89,11 @@
                                             <td>02/05/2024</td>
                                             <td>
                                                 <a href='./veiculoAddEdit.php?id=".$obj->getId()."' class='btn btn-outline-warning'><i class='fas fa-pen'></i> Editar</a>
-                                                <a href='./controle/veiculoControle.php?id=".$obj->getId()."' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Apagar</a>
+                                                <a href='./controle/veiculoControle.php?idRemover=".$obj->getId()."' class='btn btn-outline-danger'><i class='fas fa-trash'></i> Apagar</a>
                                             </td>
                                         </tr>";
                                 }
                                         ?>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>PCG-0001</td>
-                                            <td>Fiat</td>
-                                            <td>Doblo</td>
-                                            <td>Em Garagem</td>
-                                            <td>02/05/2024</td>
-                                            <td>
-                                                <a href="#" class="btn btn-outline-warning"><i class="fas fa-pen"></i> Editar</a>
-                                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Apagar</a>
-                                            </td>
-                                        </tr>
-                                         <tr>
-                                            <td>3</td>
-                                            <td>PCG-7894</td>
-                                            <td>Ford</td>
-                                            <td>F-4000</td>
-                                            <td>Em viagem</td>
-                                            <td>02/08/2024</td>
-                                            <td>
-                                                <a href="#" class="btn btn-outline-warning"><i class="fas fa-pen"></i> Editar</a>
-                                                <a href="#" class="btn btn-outline-danger"><i class="fas fa-trash"></i> Apagar</a>
-                                            </td>
-                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

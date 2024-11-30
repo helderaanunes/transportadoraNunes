@@ -1,3 +1,15 @@
+<?php
+require_once $_SERVER['DOCUMENT_ROOT'] .
+        '/transportadoraNunes/modelo/vo/VeiculoVO.php';
+require_once $_SERVER['DOCUMENT_ROOT'] .
+        '/transportadoraNunes/modelo/dao/VeiculoDAO.php';
+
+$obj = NULL;
+if (isset($_GET['id'])){
+    $obj = VeiculoDAO::getInstance()->getById($_GET['id']);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -34,55 +46,7 @@
     
         </nav>
         <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                              <div class="nav">
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVeiculos" aria-expanded="false" aria-controls="collapseVeiculos">
-                                <div class="sb-nav-link-icon"><i class="fas fa-car"></i></div>
-                                Veículos
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseVeiculos" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="veiculoAddEdit.html">Adicionar</a>
-                                    <a class="nav-link" href="veiculoListar.html">Listar</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-target="#collapseMarca" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="collapseUsuario">
-                                <div class="sb-nav-link-icon"><i class="fas fa-copyright"></i></div>
-                                Marca
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseMarca" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="marcaAddEdit.html">Adicionar</a>
-                                    <a class="nav-link" href="marcaList.html">Listar</a>
-                                </nav>
-                            </div>
-                            <a class="nav-link collapsed" href="#" data-bs-target="#collapseUsuario" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="collapseUsuario">
-                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Usuário
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapseUsuario" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="usuarioAddEdit.html">Adicionar</a>
-                                    <a class="nav-link" href="usuarioList.html">Listar</a>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
-                    </div>
-                </nav>
-            </div>
+           <?php include "menu.php"?>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
@@ -98,28 +62,34 @@
                             </div>
                             <div class="card-body">
                                 <form method="POST" action="controle/veiculoControle.php">
+                                    <?php
+                                        if($obj!=NULL){
+                                            echo "<input type='hidden' name='id' value='".$obj->getId()."'/>";
+                                        }
+                                    ?>
+                                    
                                     <div class="row">
                                         <div class="col-3">
                                             Placa:
                                             <input type="text" maxlength="8" class="form-control"
-                                                   name="placa"/>
+                                                   name="placa" value="<?php echo $obj==NULL?"":$obj->getPlaca() ?>"/>
                                         </div>
                                         <div class="col-3">
                                             Marca:
                                             <select class="form-control" name="marca">
-                                                <option value="1">Fiat</option>
+                                                <option value="1" >Fiat</option>
                                                 <option value="1">Ford</option>
                                                 <option value="1">Chevrolet</option>
-                                                <option value="1">Volvo</option>
+                                                <option value="1" >Volvo</option>
                                             </select>
                                         </div>
                                         <div class="col-3">
                                             Modelo:
                                             <select class="form-control" name="modelo">
-                                                <option>Doblo</option>
-                                                <option>F-4000</option>
-                                                <option>Onyx</option>
-                                                <option>XC40</option>
+                                                <option <?php echo $obj!=NULL && $obj->getModelo()=="Doblo"?"selected='selected'":""; ?> value="Doblo">Doblo</option>
+                                                <option <?php echo $obj!=NULL && $obj->getModelo()=="F-4000"?"selected='selected'":""; ?> value="F-4000">F-4000</option>
+                                                <option <?php echo $obj!=NULL && $obj->getModelo()=="Onix"?"selected='selected'":""; ?> value="Onix">Onix</option>
+                                                <option <?php echo $obj!=NULL && $obj->getModelo()=="XC40"?"selected='selected'":""; ?> value="XC40">XC40</option>
                                             </select>
                                         </div>
                                         <div class="col-3">

@@ -20,7 +20,7 @@ class VeiculoDAO {
 
     public function insert(VeiculoVO $veiculo) {
         try {
-            $sql = "INSERT INTO veiculo (idMarca,placa,modelo,ano, chassi, combustivel)"
+            $sql = "INSERT INTO veiculo (idMarca,placa,modelo,ano, chassi, combustivel) "
                     . "VALUES "
                     . "(:idMarca,:placa,:modelo,:ano, :chassi, :combustivel)";
             //perceba que na linha abaixo vai precisar de um import
@@ -39,12 +39,11 @@ class VeiculoDAO {
 
     public function update($veiculo) {
         try {
-            $sql = "UPDATE veiculo SET nome=:nome, placa=:placa,"
+            $sql = "UPDATE veiculo SET  placa=:placa,"
                     . "idMarca=:idMarca, modelo=:modelo, chassi=:chassi, combustivel=:combustivel  "
                     . "where id=:id";
             //perceba que na linha abaixo vai precisar de um import
             $p_sql = BDPDO::getInstance()->prepare($sql);
-            $p_sql->bindValue(":nome", $veiculo->getNome());
             $p_sql->bindValue(":idMarca", $veiculo->getIdMarca());
             $p_sql->bindValue(":placa", $veiculo->getPlaca());
             $p_sql->bindValue(":modelo", ($veiculo->getModelo()));
