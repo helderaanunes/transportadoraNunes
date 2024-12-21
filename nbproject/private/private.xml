@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/transportadoraNunes/modelo/dao/VeiculoDAO.php</file>
+            <file>file:/C:/xampp/htdocs/transportadoraNunes/controle/marcaControle.php</file>
             <file>file:/C:/xampp/htdocs/transportadoraNunes/veiculoAddEdit.php</file>
-            <file>file:/C:/xampp/htdocs/transportadoraNunes/controle/veiculoControle.php</file>
+            <file>file:/C:/xampp/htdocs/transportadoraNunes/modelo/vo/MarcaVO.php</file>
+            <file>file:/C:/xampp/htdocs/transportadoraNunes/modelo/vo/VeiculoVO.php</file>
             <file>file:/C:/xampp/htdocs/transportadoraNunes/veiculoList.php</file>
+            <file>file:/C:/xampp/htdocs/transportadoraNunes/modelo/dao/MarcaDAO.php</file>
         </group>
     </open-files>
 </project-private>

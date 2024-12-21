@@ -5,7 +5,7 @@ class UsuarioVO {
     private $email;
     private $senha;
     private $cpf;
-    private $foto;
+    private $fotoPerfil;
     
     
     function getId() {
@@ -28,8 +28,8 @@ class UsuarioVO {
         return $this->cpf;
     }
 
-    function getFoto() {
-        return $this->foto;
+    function getFotoPerfil() {
+        return $this->fotoPerfil;
     }
 
     function setId($id) {
@@ -52,8 +52,8 @@ class UsuarioVO {
         $this->cpf = $cpf;
     }
 
-    function setFoto($foto) {
-        $this->foto = $foto;
+    function setFotoPerfil($foto) {
+        $this->fotoPerfil = $foto;
     }
     
 }

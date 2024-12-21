@@ -20,10 +20,10 @@ if (isset($_POST['chassi'])){
     else{
         VeiculoDAO::getInstance()->insert($objVeiculo);
     }
-    echo "<script> 
-            alert('Salvo com sucesso!');
-            window.location.href='../veiculoList.php';
-          </script>";
+//    echo "<script> 
+//            alert('Salvo com sucesso!');
+//            window.location.href='../veiculoList.php';
+//          </script>";
 }
 else if (isset($_GET["idRemover"])){
      VeiculoDAO::getInstance()->delete($_GET["idRemover"]);

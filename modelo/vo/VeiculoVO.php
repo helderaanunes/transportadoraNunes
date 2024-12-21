@@ -65,5 +65,10 @@ class VeiculoVO {
         $this->idMarca = $idMarca;
     }
 
+    function getMarca(){
+        require_once $_SERVER['DOCUMENT_ROOT'] .
+        '/transportadoraNunes/modelo/dao/MarcaDAO.php';
+        return MarcaDAO::getInstance()->getById($this->idMarca);
+    }
 
 }
